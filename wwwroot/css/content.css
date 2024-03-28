@@ -1,0 +1,103 @@
+﻿img {
+    object-fit: contain;
+}
+
+video {
+    object-fit: contain;
+}
+
+.main-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-height: 428px;
+    width: 300px;
+}
+
+.first-content {
+    width: 500px;
+    overflow: auto;
+    position: relative;
+}
+
+.second-content {
+    overflow: auto;
+    max-width: 800px;
+}
+
+.horizontal-scroller {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.horizontal-scroller > div {
+    flex: 0 0 auto; /* Prevent content from stretching */
+    height: 100%;
+}
+
+
+p.content-title {
+    margin: 0px;
+    color: var(--accent);
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+p.content-description {
+    margin: 0px;
+    color: var(--dark);
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+p.links {
+    position:absolute;
+    margin: 0px;
+    color: var(--dark);
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    text-align: left;
+    vertical-align: bottom;
+    padding-left: 20px;
+    padding-top: 5px;
+    bottom: 0px;
+}
+
+i.links {
+    color: var(--dark);
+}
+
+.links > a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+    font-family: Arial, sans-serif; /* Choose your preferred font-family */
+}
+
+/* Style the link */
+.links > a:hover {
+    color: var(--accent); /* Change color on hover */
+}

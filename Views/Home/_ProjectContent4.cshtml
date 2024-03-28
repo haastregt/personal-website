@@ -1,0 +1,22 @@
+﻿<div class="horizontal-scroller">
+	<div class="main-img">
+		<img src="~/media/AVMotivation.png" />
+		<img src="~/media/ReachabilityAVTransparent.png" />
+	</div>
+
+	<div class="first-content">
+		<p class="content-title">An Occlusion Aware Formally Safe Autonomous Driving Algorithm</p>
+		<p class="content-description">Due to the high velocities during highway driving, it is difficult to plan trajectories when there are many occlusions (due to e.g. other traffic participants).
+			A balance needs to be struck between being conservative enough in estimations of hidden traffic participants so that safety can be guaranteed, but not too conservative that no viable trajectories can be found anymore.
+		</p>
+		<p class="content-description">In order to achieve this, I developed a novel algorithm that reasons about past observations and leverages reachability analysis on models of traffic participants and road networks, in order to estimate formally safe velocity bounds on potential hidden traffic participants (P).</p>
+		<p class="content-description">Since the algorithm needed to work in real time and it used 4-dimensional sets, a smart over-approximation needed to be made for the derivation of the models. I achieved this by disconnecting the lateral position from the velocity, reducing the problem to two 2D set operations. Furthermore this algorithm was implemented in C++ for efficiency.</p>
+		<p class="content-description">The algorithm could find trajectories up to 20 km/h faster than the state of the art in 60% of cut-in scenarios retrieved from the highD dataset.</p>
+		<p class="content-description">The work got accepted to ICRA 2024.</p>
+
+		<p class="links"><a href="https://drive.google.com/file/d/14s7LTZtC3Jw76GaVjrvyxbG3JaTFPGyR/view?usp=sharing"><i class="fa fa-newspaper-o"></i> Pre-print</a> </p>
+	</div>
+
+	<div class="second-content">
+	</div>
+</div>

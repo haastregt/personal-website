@@ -1,0 +1,22 @@
+﻿<div class="horizontal-scroller">
+	<div class="first-content">
+		<p class="content-title">Robot Teleoperation in VR</p>
+		<p class="content-description">I built a digital twin for the Franka Panda manipulator arm. The twin was created in Isaac Sim, with the idea that this could easily facilitate cloth physics or fluid simulations.
+			Receiving teleoperation feedback from a 2D screen can feel unintuitive however, therefore the simulation is rendered to a VR Headset. Unity was used for to set up the teleoperation and head-tracking, which communicated with the simulation via ROS.
+			The teleoperation follows by tracking the relative velocity of the VR controller, and using Inverse Kinematics the end-effector of the robot can be bound to this same motion. This makes the teleoperation feel intuitive.
+			The head-tracking is published to the simulation where a virtual VR rig is controlled. The rig has matched properties to the human eyes, for instance the cameras have an assymmetric frustrum.
+			Because of this the scene is very immersive and feels 3D.
+		</p>
+		<p class="content-description">A next step is to see if simulation to real can be achieved; training policies in simulation can be a lot more efficient and allow for a lot more variation in the scene.</p>
+
+		<p class="links"><a href="https://www.meta.com/s/3tHlMI017"><i class="fa fa-download"></i> Oculus App</a>     &emsp;     <a href="https://github.com/Foundational-Manipulation/franka_simulation"><i class="fa fa-github"></i> Github</a></p>
+	</div>
+
+	<div class="main-img">
+		<img src="~/media/VR Simulation.gif" />
+	</div>
+
+	<div class="second-content">
+		
+	</div>
+</div>

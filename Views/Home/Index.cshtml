@@ -1,0 +1,65 @@
+﻿@model IEnumerable<website.Models.ProjectSnippet>
+
+@{
+    ViewData["Title"] = "Jonne van Haastregt";
+}
+
+<div class="title-modal">
+    <div class="title-container">
+        <div class="title-content">
+            <div class="name-container">
+                <span class="name">Jonne <span class="smallify">van</span></span>
+                <span class="name">Haastregt</span>
+            </div>
+            <div class="vertical-line"></div>
+            <h3 class="occupation">Robotics Engineer</h3>
+
+        </div>
+    </div>
+
+    <div id="myModal", class="project-view">
+    	    <div id="project-content", class="project-content">
+		        <span class="close">&times;</span>
+            </div>
+    </div>
+</div>
+
+<div class="right-side">
+    <div class="link-container">
+        <a href="mailto:jonnevanhaastregt@gmail.com"><i class="fa fa-envelope"></i></a>
+        <a href="https://github.com/haastregt"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vanhaastregt/"><i class="fa fa-linkedin-square"></i></a>
+        <a href="~/media/cv.pdf" download><i class="fa fa-download"></i></a>
+    </div>
+    <div id="snippet_list" class="snippet_list">
+        <div class="list_filler"></div>
+        @foreach (var item in Model)
+        {
+            <div class="snippet_container" data-itemid=@item.Id onclick="scrollToElement(this)">
+                <p class="snippet-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                <p class="snippet-description">@Html.DisplayFor(modelItem => item.Description)</p>
+                
+                @if (item.SkillTags != null)
+                {
+                    <div class="skill-list">
+                        @foreach (string skill in item.SkillTags)
+                        {
+                            <div class="skill_bubble">
+                                <p>@Html.DisplayFor(modelItem => skill)</p>
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="snippet-hover"></div>
+                <div class="snippet-hover-bottom"></div>
+            </div>
+        }
+        <div class="list_filler"></div>
+        <div class="list_filler"></div>
+        <div class="list_filler"></div>
+    </div>
+    <div class="copyright">Created from scratch by yours truly.</div>
+</div>
+<script>
+    var projectContentUrl = '@Url.Action("ProjectContent", "Home")';
+</script>

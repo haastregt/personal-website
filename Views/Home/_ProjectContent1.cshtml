@@ -1,0 +1,22 @@
+﻿<div class="horizontal-scroller">
+	<div class="main-img">
+		<video controls autoplay>
+			<source src="~/media/DiffusionFull.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<div class="first-content">
+		<p class="content-title">Natural Language to Robot Action</p>
+		<p class="content-description">At the Robotics, Perception and Learning Division from KTH, I developed a skill learning system for robot manipulators. By leveraging the power of foundational models natural language can be used to perform the best matching skill policy. For instance, telling the system you are thirsty and would like a refreshment can result in activating a policy that can open a beer for you.</p>
+		<p class="content-description">Of course, these skill need to be versatile and robust given that the planned actions must adapt to the state of the workspace. This is why we decided to use diffusion policies (more on that later). A nice side effect of diffusion policies is that if the percieved environment is out of distribution, the action vector approaches 0. This means that in unknown situations, the robot does nothing, making the system relatively safe.</p>
+		<p class="content-description">In order to train the policies, we recorded demonstrations using our custom built app that maps the motion of a VR controller to the end-effector, resulting in very intuitive teleoperation.</p>
+		<p class="content-description">I specifically worked on the integration of all systems; making sure that the policy outputs resulted in correct actuation of the manipulator arm, implementing policy switching based on the output of the foundational models, and ensuring the right sensor data and other modalities were observed during demonstrations and to perform inference.</p>
+		<p class="content-description">This work was also submitted to RO-MAN 2024 and is currently under review.</p>
+	
+		<p class="links"><a href="https://roboskillframework.github.io/"><i class="fa fa-mouse-pointer"></i> Website</a>     &emsp;     <a href="https://drive.google.com/file/d/1ovaPmGV6HZ0AcagLQYloWlyXUemCp7G-/view?usp=sharing"><i class="fa fa-newspaper-o"></i> Pre-print</a> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </p>
+	</div>
+	
+	<div class="second-content">
+
+	</div>
+</div>
