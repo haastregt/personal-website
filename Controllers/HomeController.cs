@@ -11,8 +11,8 @@ namespace website.Controllers
         static List<ProjectSnippet> snippets = new List<ProjectSnippet>()
         {
             new ProjectSnippet {Id = 5,
-                                Name = "Welcome",
-                                Description = "A small introduction about me and this website.",
+                                Name = "About me",
+                                Description = "A small introduction about who I am and what drives me.",
                                 SkillTags = new List<string> {}
             },
             new ProjectSnippet {Id = 1,

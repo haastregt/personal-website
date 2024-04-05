@@ -3,13 +3,13 @@
 
 // Write your JavaScript code.
 $(function () {
-    var element = document.querySelectorAll("[data-itemId='5']")
+    var element = document.querySelectorAll("[data-itemId='1']")
     scrollToElement(element[0]);
 
     $.ajax({
         type: 'GET',
         url: projectContentUrl,
-        data: { itemId: 5 },
+        data: { itemId: 1 },
         success: function (result) {
             $("#project-content").html(result);
         },
@@ -46,6 +46,14 @@ function scrollToElement(element) {
         containers[i].classList.remove("active_snippet");
     }
     element.classList.add("active_snippet");
+}
+
+function scrollToRight() {
+    var container = document.getElementById('horizontal-scroller');
+    container.scrollTo({
+        left: container.scrollWidth,
+        behavior: 'smooth' // Smooth scrolling
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {

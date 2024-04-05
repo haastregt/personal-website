@@ -18,11 +18,13 @@ video {
     width: 500px;
     overflow: auto;
     position: relative;
+    text-align: left;
 }
 
 .second-content {
     overflow: auto;
     max-width: 800px;
+    text-align: right;
 }
 
 .horizontal-scroller {
@@ -48,7 +50,6 @@ p.content-title {
     font-weight: 400;
     font-style: normal;
     font-size: 32px;
-    text-align: left;
     vertical-align: middle;
     padding-left: 10px;
     padding-right: 10px;
@@ -63,7 +64,6 @@ p.content-description {
     font-weight: 400;
     font-style: normal;
     font-size: 12px;
-    text-align: left;
     vertical-align: middle;
     padding-left: 20px;
     padding-right: 10px;
@@ -100,4 +100,12 @@ i.links {
 /* Style the link */
 .links > a:hover {
     color: var(--accent); /* Change color on hover */
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--accent);
 }

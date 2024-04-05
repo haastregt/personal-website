@@ -1,8 +1,4 @@
-﻿<div class="horizontal-scroller">
-
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+﻿<div id="horizontal-scroller" class="horizontal-scroller">
 	<div class="main-img">
 		<img src="~/media/Astrobee.gif" />
 	</div>
@@ -12,29 +8,32 @@
 		<p class="content-description">Astrobee is a Robotics project from NASA where autonomous space cubes are developed. One potential use-case is approaching obsolete satellites and push them out of orbit towards the atmosphere.</p>
 		<p class="content-description">During my internship, I upgraded the controller from a PID to Model Predictive Control. This way the Astrobee can perform more energy efficient and there are more safety guarantees. The model for the Astrobee is nonlinear, so I set up a SQP to be solved every timestep.</p>
 		<p class="content-description">I implemented the controller in C++ with C generated code from Acados. I connected the controller to the other modules such as the EKF for the state estimation, the Force Allocation Module, and the planner, via ROS. Finally I wrapped the software in a package to easily swap in and out of the Astrobee stack.</p>
-		<p class="links"><a href="https://www.nasa.gov/astrobee"><i class="fa fa-mouse-pointer"></i> Astrobee Webpage</a>     &emsp;     <a href="https://github.com/DISCOWER/astrobee/pull/1"><i class="fa fa-github"></i> Github</a> &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </p>
+		<p class="links"><a href="https://www.nasa.gov/astrobee"><i class="fa fa-mouse-pointer"></i> Astrobee Webpage</a>     &emsp;     <a href="https://github.com/haastregt/astrobee_mpc/tree/master/gnc/ctl_mpc"><i class="fa fa-github"></i> Github</a> &emsp;  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <span class="button" onclick="scrollToRight()">scroll/click for more --></span></p>
 	</div>
 
 	<div class="second-content">
 		<p class="content-description">
-			$$ \min_{u(\cdot)} \int_0^{T_H} \Delta x(t)^T Q \Delta x(t) + u(t)^T R u(t) dt + \Delta x(T_H)^T Q_T \Delta x(T_H)$$
-			$$ s.t. \qquad\qquad \dot{x}(t) = f(x(t), u(t)) $$
-			$$ \qquad\qquad\qquad -x_{tol} \leq \Delta x(t) \leq x_{tol}, \quad t \in [0, T_H)$$
-			$$ \qquad\qquad\qquad -u_{lim} \leq u(t) \leq u_{lim}, \quad t \in [0, T_H)$$
-			$$ \qquad\qquad\qquad \Delta x(0) = \Delta x_0$$
-			$$ \qquad\qquad\qquad \Delta x(T_H) \in \mathcal{X}_T $$
+			$$ \min_{\hat{u}_0, \hat{u}_1, ..., \hat{u}_{N-1}} \sum_{k=0}^{N-1} \left [ (\hat{x}_k-r_k)^T Q (\hat{x}_k-r_k) + \hat{u}_k^T R \hat{u}_k \right ] + (\hat{x}_N-r_N)^T Q_T (\hat{x}_N-r_N) \qquad s.t. $$
+			$$ \hat{x}_{k+1} = f(x_k, u_k) $$
+			$$ -x_{tol} \leq \hat{x}_k - r_k \leq x_{tol}, \quad k = 0, 1, ..., N-1$$
+			$$ -u_{lim} \leq u_k \leq u_{lim}, \quad k = 0, 1, ..., N-1$$
+			$$ \hat{x}_0 = x$$
+			$$ \hat{x}_N - r_N \in \mathcal{X}_T $$
 		</p>
 		<p class="content-title">MPC Problem Definition</p>
 		<p class="content-description">With model predictive control, we try to optimize the control sequence according to a cost function using a dynamical model of the system.
-			Since we can't compute this for an infinite time, we choose a time horizon \(T_H\) for which an optimal control sequence is computed.
+			Since we can't compute this for an infinite time, we choose a time horizon \(N\) for which an optimal control sequence is computed.
 			As long as we constrain the problem such that the system ends up within a control invariant set \( \mathcal{X}_T \) at the end of the horizon, we know that the system can converge to equilibrium afterwards and thus keep stability.
-			We can then apply control in a receding horizon fashion.
-			The problem is mathmatically described in the equations above, where \( \Delta x \) is the deviation from the state to a reference value. \(Q\) and \(R\) are tunable parameters, and control limits and state tolerances can be set at well.
+			We can then apply control in a receding horizon fashion; every timestep we compute the solution for the new horizon and apply \(\hat{u}_0\).
+			The problem is mathmatically described in the equations above, where \(r\) is a reference state, \(Q\), \(Q_T\) and \(R\) are tunable cost parameters, and control limits and state tolerances can be set at well.
 		</p>
 		<p class="content-description">
-			In order to solve the problem, one possible option is to linearise and discretize the problem and solve it using dynamic programming.
+			In order to solve the problem, one possible option is to linearise the problem and solve it using dynamic programming.
 			However, since the non-linearities for the astrobee are strong when deviating to far from the linearization point, it is prefered to keep the non-linear model to avoid issues with stability and robustness.
 			Therefore, this problem was solved using Sequential Quadratic Programming (SQP).
 		</p>
 	</div>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </div>
